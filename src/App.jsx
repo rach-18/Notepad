@@ -14,7 +14,10 @@ function App() {
   }, [notes]);
 
   useEffect(() => {
-    setNotes(JSON.parse(localStorage.getItem("notes")));
+    if(localStorage.getItem("notes")) {
+      let array = JSON.parse(localStorage.getItem("notes"));
+      setNotes(array);
+    }
   }, []);
 
   const addNote = () => {
